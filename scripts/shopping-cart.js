@@ -8,6 +8,7 @@ function ShoppingCart() {
         $(shoppingCartModal).modal('show');
     };
 
+
     this.add = function (product) {
         productList.push(product);
         numberOfItemsElement.innerText = productList.length;
@@ -31,6 +32,19 @@ function ShoppingCart() {
         return modal;
     }
 
+    function checkout() {
+        productList.forEach(function (product) {
+            product.buy(1);
+        });
+
+        numberOfItemsElement.innerHTML = '0';
+        productList = [];
+
+        while (productsListElement.firstChild) {
+            productsListElement.firstChild.remove();
+        }
+    }
+
     function createShoppingCartHeaderElement() {
         var header = document.createElement('div');
         header.className = 'header';
@@ -48,12 +62,13 @@ function ShoppingCart() {
         cancelBtn.innerText = 'continue shopping';
 
         var okBtn = document.createElement('div');
-        okBtn.className = 'ui primary button';
+        okBtn.className = 'ui primary right labeled icon button';
         okBtn.innerText = 'checkout';
 
         var okBtnIcon = document.createElement('i');
-        okBtnIcon.className = 'shop';
+        okBtnIcon.className = 'ui shop icon';
         okBtn.appendChild(okBtnIcon);
+        okBtn.addEventListener('click', checkout);
         actionsElement.appendChild(cancelBtn);
         actionsElement.appendChild(okBtn);
 

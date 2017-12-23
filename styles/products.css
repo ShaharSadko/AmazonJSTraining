@@ -119,3 +119,7 @@ nav {
     display: inline-block;
     padding: 5%;
 }
+
+.image.content img {
+    width: 85%;
+}

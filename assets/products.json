@@ -6,7 +6,8 @@
     "price": 330,
     "rating": 3,
     "numOfOrders": 14,
-    "id": 0
+    "id": 0,
+    "inventory": 30
   },
   {
     "name": "girls cake",
@@ -15,7 +16,8 @@
     "price": 200,
     "rating": 4,
     "numOfOrders": 4,
-    "id": 1
+    "id": 1,
+    "inventory": 40
   },
   {
     "name": "meringue-cakes",
@@ -24,7 +26,8 @@
     "description": "good cake",
     "rating": 4,
     "numOfOrders": 4,
-    "id": 2
+    "id": 2,
+    "inventory": 11
   },
   {
     "name": "raspberry",
@@ -33,7 +36,8 @@
     "description": "good cake",
     "rating": 4,
     "numOfOrders": 4,
-    "id": 3
+    "id": 3,
+    "inventory": 2
   },
   {
     "name": "wedding cake",
@@ -42,7 +46,8 @@
     "price": 300,
     "rating": 4,
     "numOfOrders": 4,
-    "id": 4
+    "id": 4,
+    "inventory": 50
   },
   {
     "name": "Chocolate",
@@ -51,7 +56,8 @@
     "price": 330,
     "rating": 3,
     "numOfOrders": 14,
-    "id": 5
+    "id": 5,
+    "inventory": 50
   },
   {
     "name": "girls cake",
@@ -60,6 +66,7 @@
     "price": 200,
     "rating": 4,
     "numOfOrders": 4,
-    "id": 6
+    "id": 6,
+    "inventory": 3
   }
 ]

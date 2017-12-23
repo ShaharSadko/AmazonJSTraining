@@ -4,7 +4,6 @@ function Product(product, shoppingCart) {
     this.description = product.description;
     this.price = product.price;
     this.rating = product.rating;
-    var inventory = 50;
 
     this.addToCart = function (btn) {
         btn.innerHTML = "Remove From Cart";
@@ -19,6 +18,6 @@ function Product(product, shoppingCart) {
     };
 
     this.buy = function (quantity) {
-        inventory -= quantity;
+        product.inventory - quantity < 0 ? product.inventory = 0 : product.inventory -= quantity;
     }
 }
