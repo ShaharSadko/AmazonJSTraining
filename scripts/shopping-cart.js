@@ -3,11 +3,11 @@ function ShoppingCart() {
     var productList = [];
     var productsListElement = document.createElement('div');
     var shoppingCartModal = createCartElementContainer();
+    document.body.appendChild(shoppingCartModal);
 
     this.showCart = function () {
         $(shoppingCartModal).modal('show');
     };
-
 
     this.add = function (product) {
         productList.push(product);
@@ -33,15 +33,8 @@ function ShoppingCart() {
     }
 
     function checkout() {
-        productList.forEach(function (product) {
-            product.buy(1);
-        });
-
-        numberOfItemsElement.innerHTML = '0';
-        productList = [];
-
-        while (productsListElement.firstChild) {
-            productsListElement.firstChild.remove();
+        while (productList.length > 0) {
+            productList[0].buy(1);
         }
     }
 
@@ -85,9 +78,13 @@ function ShoppingCart() {
         var productImg = document.createElement('img');
         productImg.src = product.imgUrl;
 
+        var dropdown = createQuantityDropdown(product.inventory);
+        $(dropdown).dropdown();
+
         imgContainer.appendChild(productImg);
         productContainer.appendChild(imgContainer);
         productContainer.appendChild(createProductDescriptionElement(product));
+        productContainer.appendChild(dropdown);
 
         return productContainer;
     }
@@ -113,5 +110,17 @@ function ShoppingCart() {
         return productContentElement;
     }
 
-    document.body.appendChild(shoppingCartModal);
+    function createQuantityDropdown(quantity) {
+        var dropdown = document.createElement('select');
+        dropdown.className = 'ui search dropdown';
+
+        for (var i = 1; i <= quantity; i++) {
+            var option = document.createElement('option');
+            option.value = i.toString();
+            option.innerText = i.toString();
+            dropdown.appendChild(option);
+        }
+
+        return dropdown;
+    }
 }

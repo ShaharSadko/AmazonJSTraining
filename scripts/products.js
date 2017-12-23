@@ -4,8 +4,11 @@ function Product(product, shoppingCart) {
     this.description = product.description;
     this.price = product.price;
     this.rating = product.rating;
+    this.inventory = product.inventory;
+    var productBtn;
 
     this.addToCart = function (btn) {
+        productBtn = btn;
         btn.innerHTML = "Remove From Cart";
         btn.className = "ui secondary button right floated";
         shoppingCart.add(this);
@@ -19,5 +22,6 @@ function Product(product, shoppingCart) {
 
     this.buy = function (quantity) {
         product.inventory - quantity < 0 ? product.inventory = 0 : product.inventory -= quantity;
+        this.removeFromCart(productBtn);
     }
 }
