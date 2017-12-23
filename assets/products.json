@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Chocolate",
+    "imgUrl": "assets/Chocolate-cake.jpg",
+    "description": "hot & flaphy choclate cake",
+    "price": 330,
+    "rating": 3,
+    "numOfOrders": 14,
+    "id": 0
+  },
+  {
+    "name": "girls cake",
+    "imgUrl": "assets/little-girls-cake.jpg",
+    "description": "good cake",
+    "price": 200,
+    "rating": 4,
+    "numOfOrders": 4,
+    "id": 1
+  },
+  {
+    "name": "meringue-cakes",
+    "imgUrl": "assets/meringue-cakes.jpeg",
+    "price": 100,
+    "description": "good cake",
+    "rating": 4,
+    "numOfOrders": 4,
+    "id": 2
+  },
+  {
+    "name": "raspberry",
+    "imgUrl": "assets/raspberry-sponge-cake.jpg",
+    "price": 315,
+    "description": "good cake",
+    "rating": 4,
+    "numOfOrders": 4,
+    "id": 3
+  },
+  {
+    "name": "wedding cake",
+    "imgUrl": "assets/wedding-cake.jpg",
+    "description": "good cake",
+    "price": 300,
+    "rating": 4,
+    "numOfOrders": 4,
+    "id": 4
+  },
+  {
+    "name": "Chocolate",
+    "imgUrl": "assets/Chocolate-cake.jpg",
+    "description": "good cake",
+    "price": 330,
+    "rating": 3,
+    "numOfOrders": 14,
+    "id": 5
+  },
+  {
+    "name": "girls cake",
+    "imgUrl": "assets/little-girls-cake.jpg",
+    "description": "good cake",
+    "price": 200,
+    "rating": 4,
+    "numOfOrders": 4,
+    "id": 6
+  }
+]
