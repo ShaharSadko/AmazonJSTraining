@@ -36,6 +36,7 @@ function ProductRenderer() {
     function createImage(imgUrl) {
         var imgContainer = document.createElement('div');
         var img = new Image();
+
         imgContainer.className = 'image';
         img.src = imgUrl;
         imgContainer.appendChild(img);
@@ -57,6 +58,7 @@ function ProductRenderer() {
         var row = document.createElement('div');
         var ratingElement = createRating.call(this);
         var btn = createOrderBtn.call(this);
+
         extraContent.className = 'extra content';
         row.className = 'row';
         priceContainer.className = 'price two wide column';
@@ -65,6 +67,7 @@ function ProductRenderer() {
         row.appendChild(ratingElement);
         row.appendChild(btn);
         extraContent.appendChild(row);
+
         return extraContent;
     }
 

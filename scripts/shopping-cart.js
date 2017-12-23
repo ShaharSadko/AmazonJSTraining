@@ -10,13 +10,16 @@ function ShoppingCart() {
     };
 
     this.add = function (product) {
-        productList.push(product);
+        productList.push({product: product, quantity: 1});
         numberOfItemsElement.innerText = productList.length;
         productsListElement.appendChild(createProductItem.call(this, product));
     };
 
     this.remove = function (product) {
-        var productIndex = productList.indexOf(product);
+        var productIndex = productList.findIndex(function (productItem) {
+            return productItem.product === product
+        });
+
         productList.splice(productIndex, 1);
         numberOfItemsElement.innerText = productList.length;
         productsListElement.removeChild(productsListElement.childNodes[productIndex]);
@@ -34,7 +37,7 @@ function ShoppingCart() {
 
     function checkout() {
         while (productList.length > 0) {
-            productList[0].buy(1);
+            productList[0].product.buy(productList[0].quantity);
         }
     }
 
@@ -82,8 +85,18 @@ function ShoppingCart() {
         var productImg = document.createElement('img');
         productImg.src = product.imgUrl;
 
-        var dropdown = createQuantityDropdown(product.inventory);
+        var dropdown = createQuantityDropdown(product);
         $(dropdown).dropdown();
+        $(dropdown).dropdown({
+            onChange: function (value) {
+                var productIndex = productList.findIndex(function (productItem) {
+                    return productItem.product === product
+                });
+
+                productList[productIndex].quantity = value;
+            },
+            action: 'select'
+        });
 
         imgContainer.appendChild(productImg);
         productContainer.appendChild(removeIcon);
@@ -115,11 +128,11 @@ function ShoppingCart() {
         return productContentElement;
     }
 
-    function createQuantityDropdown(quantity) {
+    function createQuantityDropdown(product) {
         var dropdown = document.createElement('select');
         dropdown.className = 'ui search dropdown';
 
-        for (var i = 1; i <= quantity; i++) {
+        for (var i = 1; i <= product.inventory; i++) {
             var option = document.createElement('option');
             option.value = i.toString();
             option.innerText = i.toString();
