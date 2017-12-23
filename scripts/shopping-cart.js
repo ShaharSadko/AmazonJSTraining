@@ -12,7 +12,7 @@ function ShoppingCart() {
     this.add = function (product) {
         productList.push(product);
         numberOfItemsElement.innerText = productList.length;
-        productsListElement.appendChild(createProductItem(product));
+        productsListElement.appendChild(createProductItem.call(this, product));
     };
 
     this.remove = function (product) {
@@ -72,6 +72,10 @@ function ShoppingCart() {
         var productContainer = document.createElement('div');
         productContainer.className = 'image content';
 
+        var removeIcon = document.createElement('i');
+        removeIcon.className = 'ui large red remove icon right floated remove-product';
+        removeIcon.addEventListener('click', product.removeFromCart.bind(product));
+
         var imgContainer = document.createElement('div');
         imgContainer.className = 'ui medium image';
 
@@ -82,6 +86,7 @@ function ShoppingCart() {
         $(dropdown).dropdown();
 
         imgContainer.appendChild(productImg);
+        productContainer.appendChild(removeIcon);
         productContainer.appendChild(imgContainer);
         productContainer.appendChild(createProductDescriptionElement(product));
         productContainer.appendChild(dropdown);

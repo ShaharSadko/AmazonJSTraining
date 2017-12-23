@@ -114,3 +114,9 @@ nav {
 .image.content img {
     width: 85%;
 }
+
+.remove-product {
+    margin-top: 5% !important;
+    margin-right: 5% !important;
+    cursor: pointer;
+}

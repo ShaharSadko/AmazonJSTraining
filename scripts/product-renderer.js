@@ -81,19 +81,16 @@ function ProductRenderer() {
 
     function createOrderBtn() {
         var product = this;
-        var isOnCart = false;
         var btn = document.createElement('button');
         btn.innerText = 'Add To Cart';
         btn.className = 'ui primary button right floated';
         btn.addEventListener('click', function () {
-            if (!isOnCart) {
+            if (btn.innerText === 'Add To Cart') {
                 product.addToCart(this);
             }
             else {
                 product.removeFromCart(this);
             }
-
-            isOnCart = !isOnCart;
         });
 
         return btn;

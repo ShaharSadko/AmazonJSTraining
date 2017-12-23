@@ -14,10 +14,10 @@ function Product(product, shoppingCart) {
         shoppingCart.add(this);
     };
 
-    this.removeFromCart = function (btn) {
+    this.removeFromCart = function () {
         shoppingCart.remove(this);
-        btn.innerHTML = 'Add To Cart';
-        btn.className = "ui primary button right floated"
+        productBtn.innerHTML = 'Add To Cart';
+        productBtn.className = "ui primary button right floated"
     };
 
     this.buy = function (quantity) {
