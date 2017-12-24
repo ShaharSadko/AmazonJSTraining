@@ -86,7 +86,13 @@ function ShoppingCart() {
         productImg.src = product.imgUrl;
 
         var dropdown = createQuantityDropdown(product);
-        $(dropdown).dropdown();
+
+        imgContainer.appendChild(productImg);
+        productContainer.appendChild(removeIcon);
+        productContainer.appendChild(imgContainer);
+        productContainer.appendChild(createProductDescriptionElement(product));
+        productContainer.appendChild(dropdown);
+
         $(dropdown).dropdown({
             onChange: function (value) {
                 var productIndex = productList.findIndex(function (productItem) {
@@ -94,15 +100,8 @@ function ShoppingCart() {
                 });
 
                 productList[productIndex].quantity = value;
-            },
-            action: 'select'
+            }
         });
-
-        imgContainer.appendChild(productImg);
-        productContainer.appendChild(removeIcon);
-        productContainer.appendChild(imgContainer);
-        productContainer.appendChild(createProductDescriptionElement(product));
-        productContainer.appendChild(dropdown);
 
         return productContainer;
     }
@@ -130,7 +129,13 @@ function ShoppingCart() {
 
     function createQuantityDropdown(product) {
         var dropdown = document.createElement('select');
-        dropdown.className = 'ui search dropdown';
+        dropdown.className = 'ui dropdown';
+
+        var defaultText = document.createElement('option');
+        defaultText.value = '';
+        defaultText.innerHTML = "enter quantity";
+
+        dropdown.appendChild(defaultText);
 
         for (var i = 1; i <= product.inventory; i++) {
             var option = document.createElement('option');

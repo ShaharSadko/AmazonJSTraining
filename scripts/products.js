@@ -21,7 +21,7 @@ function Product(product, shoppingCart) {
     };
 
     this.buy = function (quantity) {
-        product.inventory - quantity < 0 ? product.inventory = 0 : product.inventory -= quantity;
+        this.inventory - quantity < 0 ? this.inventory = 0 : this.inventory -= quantity;
         this.removeFromCart(productBtn);
     }
 }
