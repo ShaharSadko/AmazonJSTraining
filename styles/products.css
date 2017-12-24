@@ -68,6 +68,11 @@ nav {
     height: 290px;
 }
 
+.divider {
+    border-top: 1px solid #e7e7e7;
+    width: 95%;
+}
+
 .card a:hover {
     color: #fac847 !important;
 }

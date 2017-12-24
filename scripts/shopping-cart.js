@@ -1,7 +1,7 @@
 function ShoppingCart() {
     var numberOfItemsElement = document.querySelector('#cart-num-of-items');
     var productList = [];
-    var productsListElement = document.createElement('div');
+    var ShoppingListElement = document.createElement('div');
     var shoppingCartModal = createCartElementContainer();
     document.body.appendChild(shoppingCartModal);
 
@@ -12,7 +12,7 @@ function ShoppingCart() {
     this.add = function (product) {
         productList.push({product: product, quantity: 1});
         numberOfItemsElement.innerText = productList.length;
-        productsListElement.appendChild(createProductItem.call(this, product));
+        ShoppingListElement.appendChild(createProductItem.call(this, product));
     };
 
     this.remove = function (product) {
@@ -22,14 +22,14 @@ function ShoppingCart() {
 
         productList.splice(productIndex, 1);
         numberOfItemsElement.innerText = productList.length;
-        productsListElement.removeChild(productsListElement.childNodes[productIndex]);
+        ShoppingListElement.removeChild(ShoppingListElement.childNodes[productIndex]);
     };
 
     function createCartElementContainer() {
         var modal = document.createElement('div');
         modal.className = 'ui modal';
         modal.appendChild(createShoppingCartHeaderElement());
-        modal.appendChild(productsListElement);
+        modal.appendChild(ShoppingListElement);
         modal.appendChild(createActionsElement());
 
         return modal;
@@ -85,23 +85,14 @@ function ShoppingCart() {
         var productImg = document.createElement('img');
         productImg.src = product.imgUrl;
 
-        var dropdown = createQuantityDropdown(product);
+        var divider = document.createElement('hr');
 
+        divider.className = 'divider';
         imgContainer.appendChild(productImg);
         productContainer.appendChild(removeIcon);
         productContainer.appendChild(imgContainer);
         productContainer.appendChild(createProductDescriptionElement(product));
-        productContainer.appendChild(dropdown);
-
-        $(dropdown).dropdown({
-            onChange: function (value) {
-                var productIndex = productList.findIndex(function (productItem) {
-                    return productItem.product === product
-                });
-
-                productList[productIndex].quantity = value;
-            }
-        });
+        productContainer.appendChild(divider);
 
         return productContainer;
     }
@@ -110,9 +101,8 @@ function ShoppingCart() {
         var productContentElement = document.createElement('div');
         productContentElement.className = 'description';
 
-        var productHeader = document.createElement('div');
-        productHeader.className = 'ui header';
-        productHeader.innerText = product.name;
+        var productHeader = createProductHeader(product);
+        var dropdown = createQuantityDropdown(product);
 
         var description = document.createElement('p');
         description.innerText = product.description;
@@ -123,6 +113,9 @@ function ShoppingCart() {
         productContentElement.appendChild(productHeader);
         productContentElement.appendChild(description);
         productContentElement.appendChild(price);
+        productContentElement.appendChild(dropdown);
+
+        activateDropDown(dropdown, product);
 
         return productContentElement;
     }
@@ -133,7 +126,7 @@ function ShoppingCart() {
 
         var defaultText = document.createElement('option');
         defaultText.value = '';
-        defaultText.innerHTML = "enter quantity";
+        defaultText.innerHTML = "quantity";
 
         dropdown.appendChild(defaultText);
 
@@ -145,5 +138,25 @@ function ShoppingCart() {
         }
 
         return dropdown;
+    }
+
+    function createProductHeader(product) {
+        var productHeader = document.createElement('div');
+        productHeader.className = 'ui header';
+        productHeader.innerText = product.name;
+
+        return productHeader;
+    }
+
+    function activateDropDown(dropdown, product) {
+        $(dropdown).dropdown({
+            onChange: function (value) {
+                var productIndex = productList.findIndex(function (productItem) {
+                    return productItem.product === product
+                });
+
+                productList[productIndex].quantity = value;
+            }
+        });
     }
 }
