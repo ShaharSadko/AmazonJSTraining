@@ -16,8 +16,14 @@ function Product(product, shoppingCart) {
 
     this.removeFromCart = function () {
         shoppingCart.remove(this);
-        productBtn.innerHTML = 'Add To Cart';
-        productBtn.className = "ui primary button right floated"
+        if (!this.inventory) {
+            productBtn.className = 'ui disabled button';
+            productBtn.innerHTML = "out of stock";
+        }
+        else {
+            productBtn.innerHTML = 'Add To Cart';
+            productBtn.className = "ui primary button right floated"
+        }
     };
 
     this.buy = function (quantity) {

@@ -1,33 +1,36 @@
 function ShoppingCart() {
-    var numberOfItemsElement = document.querySelector('#cart-num-of-items');
     var productList = [];
-    var ShoppingListElement = document.createElement('div');
-    var shoppingCartModal = createCartElementContainer();
-    document.body.appendChild(shoppingCartModal);
+    document.body.appendChild(createCartElementContainer());
 
     this.showCart = function () {
-        $(shoppingCartModal).modal('show');
+        $('#shopping-cart-modal').modal('show');
     };
 
     this.add = function (product) {
+        var ShoppingListElement = document.querySelector('#shopping-cart-items');
         productList.push({product: product, quantity: 1});
-        numberOfItemsElement.innerText = productList.length;
+        document.querySelector('#cart-num-of-items').innerText = productList.length;
         ShoppingListElement.appendChild(createProductItem.call(this, product));
     };
 
     this.remove = function (product) {
+        var ShoppingListElement = document.querySelector('#shopping-cart-items');
         var productIndex = productList.findIndex(function (productItem) {
             return productItem.product === product
         });
 
         productList.splice(productIndex, 1);
-        numberOfItemsElement.innerText = productList.length;
+        document.querySelector('#cart-num-of-items').innerText = productList.length;
         ShoppingListElement.removeChild(ShoppingListElement.childNodes[productIndex]);
     };
 
     function createCartElementContainer() {
         var modal = document.createElement('div');
+        var ShoppingListElement = document.createElement('div');
+        ShoppingListElement.id = 'shopping-cart-items';
+
         modal.className = 'ui modal';
+        modal.id = 'shopping-cart-modal';
         modal.appendChild(createShoppingCartHeaderElement());
         modal.appendChild(ShoppingListElement);
         modal.appendChild(createActionsElement());
