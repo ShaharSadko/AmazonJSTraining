@@ -9,8 +9,8 @@ function Product(product, shoppingCart) {
 
     this.addToCart = function (btn) {
         productBtn = btn;
-        btn.innerHTML = "Remove From Cart";
-        btn.className = "ui secondary button right floated";
+        btn.innerHTML = 'Remove From Cart';
+        btn.className = 'ui secondary button right floated';
         shoppingCart.add(this);
     };
 

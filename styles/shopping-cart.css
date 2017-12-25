@@ -1,0 +1,25 @@
+#shopping-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+#shopping-cart-container {
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    position: relative;
+    height: 146%;
+    align-items: flex-end;
+    top: -80%;
+}
+
+.divider {
+    border-top: 1px solid #e7e7e7;
+    width: 95%;
+}
+
+#total-price-element {
+    margin: 5%;
+}

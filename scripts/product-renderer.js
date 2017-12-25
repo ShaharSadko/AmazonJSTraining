@@ -4,14 +4,13 @@ function ProductRenderer() {
         var img = createImage(product.imgUrl);
         var content = createContent(product.name, product.description);
         var extra = extraContent.call(product);
-        productContainer.className = 'ui card';
+        productContainer.className = 'ui card column';
         productContainer.appendChild(img);
         productContainer.appendChild(content);
         productContainer.appendChild(extra);
 
         DOMElement.appendChild(productContainer);
     };
-
 
     function createContent(name, description) {
         var content = document.createElement('div');

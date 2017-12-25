@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>amaRomach</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/shopping-cart.css">
     <link rel="stylesheet" href="styles/products.css">
     <link rel="stylesheet" href="semantic/dist/semantic.min.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -32,17 +34,19 @@
         <div class="ui floating right dropdown">
             <span class="dropdown-header">Account&Lists<i class="dropdown icon"></i></span>
             <div id="account-and-Lists" class="menu ui two column relaxed divided grid">
-                <div class="column">
-                    <h4 class="ui header">Your Account</h4>
-                    <div class="ui link list">
-                        <a class="item">sign up</a>
-                        <a class="item">sign in</a>
+                <div class="row">
+                    <div class="column">
+                        <h4 class="ui header">Your Account</h4>
+                        <div class="ui link list">
+                            <a class="item">sign up</a>
+                            <a class="item">sign in</a>
+                        </div>
                     </div>
-                </div>
-                <div class="column">
-                    <h4 class="ui header">Your Lists</h4>
-                    <div class="ui link list" id="lists">
-                        <a class="item">Create New List</a>
+                    <div class="column">
+                        <h4 class="ui header">Your Lists</h4>
+                        <div class="ui link list" id="lists">
+                            <a class="item">Create New List</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,10 +54,10 @@
     </div>
 </nav>
 
-<div id="products-list" class="ui link cards"></div>
+<div id="products-list" class="ui link cards five column grid"></div>
 
 <script src="scripts/shopping-cart.js"></script>
-<script src="scripts/products.js"></script>
+<script src="scripts/product.js"></script>
 <script src="scripts/product-renderer.js"></script>
 <script src="scripts/main.js"></script>
 </body>
