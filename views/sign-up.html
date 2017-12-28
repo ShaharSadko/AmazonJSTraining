@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>amaRomach</title>
+    <link rel="stylesheet" href="../styles/signing.css">
+    <link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
+</head>
+<body>
+<a href="index.html"><img id="logo" src="../assets/amazon_logo_black.jpg" alt="amaRomach"></a>
+<div id="form-container">
+    <h1 class="ui header">Create account</h1>
+    <form class="ui form">
+        <div class="field">
+            <label>Your name
+                <input type="text" name="name">
+            </label>
+        </div>
+        <div class="field">
+            <label>Email
+                <input type="email" name="email">
+            </label>
+        </div>
+        <div class="field">
+            <label>Password
+                <input placeholder="At least 6 characters" type="text" name="password">
+            </label>
+        </div>
+        <div class="field">
+            <label>Re-enter password
+                <input type="text" name="re-password">
+            </label>
+        </div>
+        <button id="sign-in-btn" class="ui primary button" type="submit">Create yor AmaRomach account</button>
+    </form>
+    <p id="privacy-conditions">By creating an account, you agree to Amazon's Conditions of Use and Privacy Notice.</p>
+    <hr>
+    <p>Already have an account? <a href="sign-in.html">Sign in</a></p>
+</div>
+</body>
+</html>

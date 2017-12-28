@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>amaRomach</title>
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/shopping-cart.css">
-    <link rel="stylesheet" href="styles/products.css">
-    <link rel="stylesheet" href="semantic/dist/semantic.min.css">
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/shopping-cart.css">
+    <link rel="stylesheet" href="../styles/products.css">
+    <link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
 </head>
 <body>
 <nav class="ui header">
     <div>
-        <a href="index.html">
-            <img id="logo" src="assets/amazon-logo.svg" alt="amazon">
+        <a id="logo" href="index.html">
+            <img src="../assets/amazon-logo.svg" alt="amazon">
         </a>
         <div id="search" class="ui action input">
             <input type="text" placeholder="Search...">
@@ -38,8 +38,8 @@
                     <div class="column">
                         <h4 class="ui header">Your Account</h4>
                         <div class="ui link list">
-                            <a class="item">sign up</a>
-                            <a class="item">sign in</a>
+                            <a href="sign-up.html" class="item">sign up</a>
+                            <a href="sign-in.html" class="item">sign in</a>
                         </div>
                     </div>
                     <div class="column">
@@ -56,9 +56,9 @@
 
 <div id="products-list" class="ui link cards five column grid"></div>
 
-<script src="scripts/shopping-cart.js"></script>
-<script src="scripts/product.js"></script>
-<script src="scripts/product-renderer.js"></script>
-<script src="scripts/main.js"></script>
+<script src="../scripts/shopping-cart.js"></script>
+<script src="../scripts/product.js"></script>
+<script src="../scripts/product-renderer.js"></script>
+<script src="../scripts/main.js"></script>
 </body>
 </html>
