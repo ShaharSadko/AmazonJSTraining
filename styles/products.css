@@ -6,13 +6,17 @@ body {
     float: right;
 }
 
+.ui.negative.message {
+    margin: auto;
+}
+
 #products-list {
     margin: 5%;
     overflow: hidden;
 }
 
 #products-list img {
-    height: 250px;
+    /*height: 250px;*/
 }
 
 .card a:hover {
