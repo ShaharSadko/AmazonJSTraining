@@ -35,10 +35,14 @@ function ProductRenderer() {
     function createImage(imgUrl) {
         var imgContainer = document.createElement('div');
         var img = new Image();
+        var outOfStockNotifier = document.createElement('div');
+        outOfStockNotifier.className = 'ui red message out-of-stock';
+        outOfStockNotifier.innerText = 'out of stock';
 
         imgContainer.className = 'image';
         img.src = imgUrl;
         imgContainer.appendChild(img);
+        imgContainer.appendChild(outOfStockNotifier);
 
         return imgContainer;
     }
@@ -87,14 +91,8 @@ function ProductRenderer() {
         btn.innerText = 'Add To Cart';
         btn.className = 'ui primary button right floated';
         btn.addEventListener('click', function () {
-            if (btn.innerText === 'Add To Cart') {
-                product.addToCart(this);
-            }
-            else {
-                product.removeFromCart(this);
-            }
+            (btn.innerText === 'Add To Cart') ? product.addToCart(this) : product.removeFromCart(this);
         });
-
         return btn;
     }
 }

@@ -123,7 +123,7 @@ function ShoppingCart() {
         productContentElement.className = 'description';
 
         var productHeader = createProductHeader(product);
-        var dropdown = createQuantityDropdown(product);
+        var dropdown = createQuantityElement(product);
 
         var description = document.createElement('p');
         description.innerText = product.description;
@@ -142,13 +142,36 @@ function ShoppingCart() {
         return productContentElement;
     }
 
-    function createQuantityDropdown(product) {
+    function createQuantityElement(product) {
+        if (product instanceof QuantifiableProduct) {
+            return createDropdown(product);
+        }
+        else if (product instanceof Product) {
+            return inputQuantityElement(product)
+        }
+    }
+
+    function inputQuantityElement(product) {
+        var inputContainer = document.createElement('div');
+        inputContainer.className = 'ui transparent input';
+        var input = document.createElement('input');
+        input.placeholder = 'quantity';
+        input.type = 'number';
+        input.addEventListener('input', function () {
+            this.value <= 0 ? this.value = 1 : onQuantityChange(this.value, product);
+        });
+
+        inputContainer.appendChild(input);
+        return inputContainer;
+    }
+
+    function createDropdown(product) {
         var dropdown = document.createElement('select');
         dropdown.className = 'ui dropdown';
 
         var defaultText = document.createElement('option');
         defaultText.value = '';
-        defaultText.innerHTML = "quantity";
+        defaultText.innerHTML = 'quantity';
 
         dropdown.appendChild(defaultText);
 
@@ -173,16 +196,21 @@ function ShoppingCart() {
     function activateDropDown(dropdown, product) {
         $(dropdown).dropdown({
             onChange: function (value) {
-                var productIndex = productList.findIndex(function (productItem) {
-                    return productItem.product === product;
-                });
-
-                const priceElement = document.querySelector('#total-price-element .price');
-                priceElement.innerText = Number(priceElement.innerText) + (value - productList[productIndex].quantity) * product.price;
-                productList[productIndex].quantity = value;
+                onQuantityChange(value, product)
             }
         });
     }
 
+    function onQuantityChange(value, product) {
+        var productIndex = productList.findIndex(function (productItem) {
+            return productItem.product === product;
+        });
+
+        var priceElement = document.querySelector('#total-price-element .price');
+        priceElement.innerText = Number(priceElement.innerText) + (value - productList[productIndex].quantity) * product.price;
+        productList[productIndex].quantity = value;
+    }
+
     document.querySelector('#shopping-cart-container').addEventListener('click', this.showCart);
+    $('.dropdown').dropdown({transition: 'drop'}).dropdown({on: 'hover'});
 }
