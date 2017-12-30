@@ -43,8 +43,8 @@ body {
     padding: 5%;
 }
 
-.image.content img {
-    width: 85%;
+.ui.cards > .card > .image {
+    background-color: transparent !important;
 }
 
 .remove-product {
