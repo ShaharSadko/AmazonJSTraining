@@ -1,8 +1,8 @@
 [
   {
-    "name": "Chocolate",
-    "imgUrl": "../assets/Chocolate-cake.jpg",
-    "description": "hot & flaphy choclate cake",
+    "name": "Oatmeal",
+    "imgUrl": "../assets/oatmeal.jpg",
+    "description": "Hot and fluffy oatmeal & protein powder cake",
     "price": 330,
     "rating": 3,
     "numOfOrders": 14,
@@ -10,9 +10,9 @@
     "inventory": 30
   },
   {
-    "name": "girls cake",
-    "imgUrl": "../assets/little-girls-cake.jpg",
-    "description": "good cake",
+    "name": "WS license",
+    "imgUrl": "../assets/ws.png",
+    "description": "Rare WS license. No need for military email",
     "price": 200,
     "rating": 4,
     "numOfOrders": 4,
@@ -20,29 +20,29 @@
     "inventory": 40
   },
   {
-    "name": "meringue-cakes",
-    "imgUrl": "../assets/meringue-cakes.jpeg",
+    "name": "Coconut",
+    "imgUrl": "../assets/coconut.png",
     "price": 100,
-    "description": "good cake",
+    "description": "Good coconut",
     "rating": 4,
     "numOfOrders": 4,
     "id": 2,
     "inventory": 11
   },
   {
-    "name": "raspberry",
-    "imgUrl": "../assets/raspberry-sponge-cake.jpg",
+    "name": "beard exempt",
+    "imgUrl": "../assets/beard.jpg",
     "price": 315,
-    "description": "good cake",
+    "description": "Your very own license to grow beard",
     "rating": 4,
     "numOfOrders": 4,
     "id": 3,
     "inventory": 2
   },
   {
-    "name": "wedding cake",
-    "imgUrl": "../assets/wedding-cake.jpg",
-    "description": "good cake",
+    "name": "A day off",
+    "imgUrl": "../assets/freedom.png",
+    "description": "1 day off work",
     "price": 300,
     "rating": 4,
     "numOfOrders": 4,
@@ -50,23 +50,13 @@
     "inventory": 50
   },
   {
-    "name": "Chocolate",
-    "imgUrl": "../assets/Chocolate-cake.jpg",
-    "description": "good cake",
+    "name": "JS book for beginners",
+    "imgUrl": "../assets/js-book.png",
+    "description": "Digital javascript book to start coding your first js website",
     "price": 330,
     "rating": 3,
     "numOfOrders": 14,
     "id": 5,
     "inventory": 50
-  },
-  {
-    "name": "girls cake",
-    "imgUrl": "../assets/little-girls-cake.jpg",
-    "description": "good cake",
-    "price": 200,
-    "rating": 4,
-    "numOfOrders": 4,
-    "id": 6,
-    "inventory": 3
   }
 ]

@@ -15,8 +15,15 @@ body {
     overflow: hidden;
 }
 
-#products-list img {
-    /*height: 250px;*/
+.out-of-stock {
+    position: absolute !important;
+    top: 35%;
+    left: 26%;
+    opacity: 0;
+}
+
+.card {
+    display: flex !important;
 }
 
 .card a:hover {
@@ -44,4 +51,9 @@ body {
     margin-top: 5% !important;
     margin-right: 5% !important;
     cursor: pointer;
+}
+
+.extra.content {
+    position: relative !important;
+    bottom: 0 !important;
 }
