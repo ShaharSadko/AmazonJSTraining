@@ -6,7 +6,7 @@ function QuantifiableProduct(product, shoppingCart) {
         this.inventory -= quantity;
         this.removeFromCart();
         if (!this.inventory) {
-            notifyElementOutOfStock();
+            notifyElementOutOfStock.call(this);
         }
     };
 
