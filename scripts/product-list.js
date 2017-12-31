@@ -14,6 +14,7 @@ function ProductList() {
 
     xhr.open('GET', productsFileUrl, true);
     xhr.send();
+
     var productsContainer = document.querySelector('#products-list');
 
     function initializeData(data) {
@@ -41,32 +42,5 @@ function ProductList() {
 
         errorContainer.appendChild(errorMessage);
         productsContainer.appendChild(errorContainer)
-    }
-
-    QuantifiableProduct.prototype.buy = function (quantity) {
-        this.inventory -= quantity;
-        this.removeFromCart();
-        var product = this;
-        if (!this.inventory) {
-            var elementHeader = Array.from(document.querySelectorAll('.card .content .header')).filter(function (el) {
-                return el.innerText === product.name;
-            })[0];
-
-            var card = elementHeader.parentElement.parentElement;
-            card.querySelector('.out-of-stock').style.opacity = '1';
-            card.querySelector('button ').className = 'ui button disabled';
-        }
-    };
-
-    Product.prototype.removeFromCart = function () {
-        var productBtn = GetProductElement(this).querySelector('button');
-        this.shoppingCart.remove(this);
-        productBtn.innerHTML = 'Add To Cart';
-        productBtn.className = "ui primary button right floated"
-    };
-
-    function GetProductElement(product) {
-        var productIndex = productList.indexOf(product);
-        return productsContainer.querySelector('.card:nth-child(' + (productIndex + 1) + ')');
     }
 }
