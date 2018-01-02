@@ -1,5 +1,5 @@
 function ShoppingCart() {
-    var productList = [];
+    var cart = [];
     document.body.appendChild(createCartElementContainer());
 
     this.showCart = function () {
@@ -10,21 +10,21 @@ function ShoppingCart() {
         var currentPrice = Number(document.querySelector('#total-price-element .price').innerText);
         document.querySelector('#total-price-element .price').innerText = currentPrice + product.price;
         var ShoppingListElement = document.querySelector('#shopping-cart-items');
-        productList.push({product: product, quantity: 1});
-        document.querySelector('#cart-num-of-items').innerText = productList.length;
+        cart.push({product: product, quantity: 1});
+        document.querySelector('#cart-num-of-items').innerText = cart.length;
         ShoppingListElement.appendChild(createProductItem.call(this, product));
     };
 
     this.remove = function (product) {
-        var productIndex = productList.findIndex(function (productItem) {
+        var productIndex = cart.findIndex(function (productItem) {
             return productItem.product === product
         });
 
-        document.querySelector('#total-price-element .price').innerText -= product.price * productList[productIndex].quantity;
+        document.querySelector('#total-price-element .price').innerText -= product.price * cart[productIndex].quantity;
         var ShoppingListElement = document.querySelector('#shopping-cart-items');
 
-        productList.splice(productIndex, 1);
-        document.querySelector('#cart-num-of-items').innerText = productList.length;
+        cart.splice(productIndex, 1);
+        document.querySelector('#cart-num-of-items').innerText = cart.length;
         ShoppingListElement.removeChild(ShoppingListElement.childNodes[productIndex]);
     };
 
@@ -57,8 +57,8 @@ function ShoppingCart() {
     }
 
     function checkout() {
-        while (productList.length > 0) {
-            productList[0].product.buy(productList[0].quantity);
+        while (cart.length > 0) {
+            cart[0].product.buy(cart[0].quantity);
         }
     }
 
@@ -202,13 +202,13 @@ function ShoppingCart() {
     }
 
     function onQuantityChange(value, product) {
-        var productIndex = productList.findIndex(function (productItem) {
+        var productIndex = cart.findIndex(function (productItem) {
             return productItem.product === product;
         });
 
         var priceElement = document.querySelector('#total-price-element .price');
-        priceElement.innerText = Number(priceElement.innerText) + (value - productList[productIndex].quantity) * product.price;
-        productList[productIndex].quantity = value;
+        priceElement.innerText = Number(priceElement.innerText) + (value - cart[productIndex].quantity) * product.price;
+        cart[productIndex].quantity = value;
     }
 
     document.querySelector('#shopping-cart-container').addEventListener('click', this.showCart);
