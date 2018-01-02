@@ -1,21 +1,8 @@
-function ProductList() {
+function getProducts() {
     var productList = [];
     var productsFileUrl = '../assets/products.json';
-    var xhr = new XMLHttpRequest();
-
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-            initializeData(JSON.parse(xhr.responseText));
-        }
-        if (this.readyState === 4 && this.status === 404) {
-            showError();
-        }
-    };
-
-    xhr.open('GET', productsFileUrl, true);
-    xhr.send();
-
     var productsContainer = document.querySelector('#products-list');
+    getRequest(productsFileUrl);
 
     function initializeData(data) {
         var productsRenderer = new ProductRenderer();
@@ -43,4 +30,22 @@ function ProductList() {
         errorContainer.appendChild(errorMessage);
         productsContainer.appendChild(errorContainer)
     }
+}
+
+function getRequest(url)
+{
+ var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            initializeData(JSON.parse(xhr.responseText));
+        }
+        if (this.readyState === 4 && this.status === 404) {
+            showError();
+        }
+    };
+
+    xhr.open('GET', url, true);
+    xhr.send();
+
 }
