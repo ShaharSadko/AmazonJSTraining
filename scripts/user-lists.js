@@ -29,7 +29,7 @@ function UserList() {
 
     function removeProduct(product) {
         for (var i = 0; i < userList.length; i++) {
-            userList[i].find(product);
+            userList[i].find(product); // זה מיותר?
             for (var j = 0; j < userList[i].length; j++) {
                 if (userList[i][j] === product) {
                     userList[i].splice(j, 1);
